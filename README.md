@@ -98,36 +98,47 @@ const testData = {
 
 1. 对每个`query`进行处理
     1. `field`加引号
-    1. `dpvalue`替换字符
-    1. `function`存在与否
+    1. 多query加`,`
+    1. `dpvalue`判存，替换字符
+    1. `function`判存
+1. 缺省处理
 
 #### makeWhere(start,end,tags)
 
+1. 时间处理
+    1. 缺省处理
+    1. 查询语句单引号处理
 1. `tags`处理
     1. `and`添加
-    1. 等式构造
+    1. 引号处理
 1. `where` 语句构造
-    1. `time`构造
+    1. `and`添加
+    1. `time`加入
 
 #### makeGroupByTime(downsample)
 
+1. 缺省处理
 1. 字符切分
+1. 转化语句
 
 #### makeLimitOffset(limit,offset)
 
-1. 构造语句
+1. 缺省处理
+1. 转化语句
 
 ### issues
 
 - [x] 单双引号处理
-    - Influx.escape下函数
+    - Influx.escape函数
 - [x] `&` `|`字符替换
     - Reg+replace
 - [x] 数字存在与否的判定
      - `isFinite()`
-- [ ] 参数是否存在的处理
+- [x] 参数是否存在的处理
     1. 传入数据的是否存在逻辑未完善
     1. <mark>offset、limit依存问题是否需要处理
+- [ ] sql语句注入问题
+- [x] 代码压缩
 
 ### result for testData
 
